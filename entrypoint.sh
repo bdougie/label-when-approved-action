@@ -71,7 +71,7 @@ label_when_approved() {
   done
 }
 
-if [[ "$action" == "submitted" ]] && [[ "$state" == "approved" ]]; then
+if [[ "$action" == "opened" ]]; then
   label_when_approved
 else
   echo "Ignoring event ${action}/${state}"
