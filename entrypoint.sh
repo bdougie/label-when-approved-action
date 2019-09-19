@@ -52,14 +52,6 @@ label_when_approved() {
         -d "{\"labels\":[\"${ADD_LABEL}\"]}" \
         "${URI}/repos/${GITHUB_REPOSITORY}/issues/${number}/labels"
 
-      if [[ -n "$REMOVE_LABEL" ]]; then
-          curl -sSL \
-            -H "${AUTH_HEADER}" \
-            -H "${API_HEADER}" \
-            -X DELETE \
-            "${URI}/repos/${GITHUB_REPOSITORY}/issues/${number}/labels/${REMOVE_LABEL}"
-      fi
-
       break
     fi
   done
