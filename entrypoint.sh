@@ -72,7 +72,7 @@ label_when_approved() {
   done
 }
 
-if [[ "$action" == "opened" ]]; then
+if [[ "$action" == "opened" ]] || [[ "$action" == "synchronize" ]]; then
   label_when_approved
 else
   echo "Ignoring event ${action}/${state}"
