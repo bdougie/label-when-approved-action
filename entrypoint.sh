@@ -17,7 +17,7 @@ if [[ -z "$GITHUB_EVENT_PATH" ]]; then
 fi
 
 URI="https://api.github.com"
-API_HEADER="Accept: application/vnd.github.v3+json"
+API_HEADER="Accept: application/vnd.github.symmetra-preview+json"
 AUTH_HEADER="Authorization: token ${GITHUB_TOKEN}"
 
 action=$(jq --raw-output .action "$GITHUB_EVENT_PATH")
@@ -46,9 +46,10 @@ label_when_approved() {
 
       addLabel=$ADD_LABEL
       if [[ -n "$LABEL_NAME" ]]; then
-        echo "Plase define the ADD_LABEL variable instead of the deprecated LABEL_NAME."
+        echo "Please define the ADD_LABEL variable instead of the deprecated LABEL_NAME."
         addLabel=$LABEL_NAME
       fi
+      echo "made it curl"
 
       curl -sSL \
         -H "${AUTH_HEADER}" \
